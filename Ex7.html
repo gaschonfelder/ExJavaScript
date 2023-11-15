@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cálculo do Custo Final</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+<body>
+
+<div class="container mt-5">
+    <form id="formulario">
+        <div class="form-group">
+            <label for="custoFabrica">Custo de Fábrica:</label>
+            <input type="number" class="form-control" id="custoFabrica" required>
+        </div>
+
+        <div class="form-group">
+            <label for="percDistribuidor">% Distribuidor:</label>
+            <input type="number" class="form-control" id="percDistribuidor" required>
+        </div>
+
+        <div class="form-group">
+            <label for="percImpostos">% Impostos:</label>
+            <input type="number" class="form-control" id="percImpostos" required>
+        </div>
+
+        <button type="button" class="btn btn-primary" onclick="calcularCustoFinal()">Calcular</button>
+
+        <div class="form-group mt-3">
+            <label for="valorFinal">Valor Final:</label>
+            <input type="text" class="form-control" id="valorFinal" readonly>
+        </div>
+    </form>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+<script>
+    function calcularCustoFinal() {
+        var custoFabrica = parseFloat(document.getElementById("custoFabrica").value);
+        var percDistribuidor = parseFloat(document.getElementById("percDistribuidor").value);
+        var percImpostos = parseFloat(document.getElementById("percImpostos").value);
+
+        if (isNaN(custoFabrica) || isNaN(percDistribuidor) || isNaN(percImpostos)) {
+            alert("Por favor, insira valores válidos.");
+            return;
+        }
+
+        var custoFinal = custoFabrica + (custoFabrica * percDistribuidor / 100) + (custoFabrica * percImpostos / 100);
+
+        document.getElementById("valorFinal").value = custoFinal.toFixed(2);
+    }
+</script>
+
+</body>
+</html>

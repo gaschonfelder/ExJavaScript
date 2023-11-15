@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operações Matemáticas</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+<body>
+<h3>Soma entre 10 e 100</h3>
+<button class="btn btn-primary" onclick="mostrarResultado('soma')">Soma</button>
+<br>
+<h3>Subtração entre 10 e 100</h3>
+<button class="btn btn-secondary" onclick="mostrarResultado('subtracao')">Subtração</button>
+<h3>Multiplicação entre 10 e 100</h3>
+<button class="btn btn-success" onclick="mostrarResultado('multiplicacao')">Multiplicação</button>
+<h3>Divisão entre 10 e 100</h3>
+<button class="btn btn-danger" onclick="mostrarResultado('divisao')">Divisão</button>
+
+<script>
+    var numero1 = 10;
+    var numero2 = 100;
+
+    function mostrarResultado(operacao) {
+        var resultado;
+
+        switch (operacao) {
+            case 'soma':
+                resultado = numero1 + numero2;
+                break;
+            case 'subtracao':
+                resultado = numero1 - numero2;
+                break;
+            case 'multiplicacao':
+                resultado = numero1 * numero2;
+                break;
+            case 'divisao':
+                resultado = numero1 / numero2;
+                break;
+            default:
+                resultado = 'Operação inválida';
+        }
+
+        alert(operacao.charAt(0).toUpperCase() + operacao.slice(1) + ": " + resultado);
+    }
+</script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+</body>
+</html>
